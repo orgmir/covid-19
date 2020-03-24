@@ -7,7 +7,7 @@ db.all(
   `SELECT report.date, SUM(report.number) AS count, country
 FROM report
 JOIN origin ON report.origin_id = origin.id
-WHERE origin.country = "Portugal" OR origin.country = "Australia" OR origin.country = "Italy" 
+WHERE report.type="confirmed" AND origin.country = "Portugal" OR origin.country = "Australia" OR origin.country = "Italy" 
 OR origin.country = "Spain" OR origin.country ="UK" OR origin.country = "US" 
 GROUP BY report.date, origin.country`,
   [],
